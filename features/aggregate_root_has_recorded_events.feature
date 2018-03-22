@@ -7,7 +7,7 @@ Feature:
     Given the config file contains:
     """
     extensions:
-        GQuemener\PhpSpec\Extension: ~
+        Prooph\PhpSpec\Extension: ~
     """
 
   Scenario: Successfully match expected recorded events

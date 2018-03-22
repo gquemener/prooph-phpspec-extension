@@ -1,5 +1,5 @@
 {
-    "name": "gquemener/prooph-phpspec-extension",
+    "name": "prooph/phpspec-extension",
     "description": "",
     "type": "phpspec-extension",
     "require": {
@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "GQuemener\\PhpSpec\\": "src"
+            "Prooph\\PhpSpec\\": "src"
         }
     },
     "config": {

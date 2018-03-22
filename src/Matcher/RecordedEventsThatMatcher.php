@@ -2,7 +2,7 @@
 
 declare (strict_types = 1);
 
-namespace GQuemener\PhpSpec\Matcher;
+namespace Prooph\PhpSpec\Matcher;
 
 use PhpSpec\Matcher\BasicMatcher;
 use PhpSpec\Formatter\Presenter\Presenter;

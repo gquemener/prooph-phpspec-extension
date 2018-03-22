@@ -2,11 +2,11 @@
 
 declare (strict_types = 1);
 
-namespace GQuemener\PhpSpec;
+namespace Prooph\PhpSpec;
 
 use PhpSpec\Extension as PhpSpecExtension;
 use PhpSpec\ServiceContainer;
-use GQuemener\PhpSpec\Matcher\RecordedEventsThatMatcher;
+use Prooph\PhpSpec\Matcher\RecordedEventsThatMatcher;
 
 final class Extension implements PhpSpecExtension
 {
