@@ -1,0 +1,28 @@
+{
+    "name": "gquemener/prooph-phpspec-extension",
+    "description": "",
+    "type": "phpspec-extension",
+    "require": {
+        "php": "^7.0,<7.3",
+        "phpspec/phpspec": "^4.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.4",
+        "prooph/event-sourcing": "^5.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gildas Quéméner",
+            "email": "gildas.quemener@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "GQuemener\\PhpSpec\\": "src"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
