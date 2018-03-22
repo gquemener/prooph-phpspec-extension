@@ -10,7 +10,7 @@
         "behat/behat": "^3.4",
         "prooph/event-sourcing": "^5.3"
     },
-    "license": "MIT",
+    "license": "BSD",
     "authors": [
         {
             "name": "Gildas Quéméner",
