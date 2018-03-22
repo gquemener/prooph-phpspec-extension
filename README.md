@@ -1,0 +1,1 @@
+# Prooph PhpSpec extension
