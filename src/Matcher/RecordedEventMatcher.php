@@ -7,6 +7,7 @@ namespace Prooph\PhpSpec\Matcher;
 use PhpSpec\Matcher\BasicMatcher;
 use PhpSpec\Formatter\Presenter\Presenter;
 use PhpSpec\Exception\Example\FailureException;
+use Prooph\EventSourcing\AggregateRoot;
 use Prooph\PhpSpec\EventSourcing\AggregateExtractor;
 
 final class RecordedEventMatcher extends BasicMatcher
@@ -28,6 +29,7 @@ final class RecordedEventMatcher extends BasicMatcher
     public function supports(string $name, $subject, array $arguments): bool
     {
         return 'haveRecorded' === $name
+            && $subject instanceof AggregateRoot
             && 1 === \count($arguments)
         ;
     }
