@@ -1,6 +1,6 @@
 {
     "name": "prooph/phpspec-extension",
-    "description": "",
+    "description": "Ease aggregate root description using PhpSpec by providing matchers",
     "type": "phpspec-extension",
     "require": {
         "php": "^7.0,<7.3",
