@@ -7,20 +7,18 @@ namespace Prooph\PhpSpec\Matcher;
 use PhpSpec\Matcher\BasicMatcher;
 use PhpSpec\Formatter\Presenter\Presenter;
 use PhpSpec\Exception\Example\FailureException;
+use Prooph\PhpSpec\EventSourcing\AggregateExtractor;
 
 final class RecordedEventsThatMatcher extends BasicMatcher
 {
-    /**
-     * @var Presenter
-     */
     private $presenter;
 
-    /**
-     * @param Presenter $presenter
-     */
-    public function __construct(Presenter $presenter)
-    {
+    public function __construct(
+        Presenter $presenter,
+        AggregateExtractor $extractor
+    ) {
         $this->presenter = $presenter;
+        $this->extractor = $extractor;
     }
 
     /**
@@ -46,10 +44,7 @@ final class RecordedEventsThatMatcher extends BasicMatcher
      */
     protected function matches($subject, array $arguments): bool
     {
-        $refl = new \ReflectionObject($subject);
-        $prop = $refl->getProperty('recordedEvents');
-        $prop->setAccessible(true);
-        $events = $prop->getValue($subject);
+        $events = $this->extractor->extractRecordedEvents($subject);
 
         return $arguments[0]($events);
     }

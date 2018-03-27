@@ -7,28 +7,23 @@ namespace Prooph\PhpSpec\Matcher;
 use PhpSpec\Matcher\BasicMatcher;
 use PhpSpec\Formatter\Presenter\Presenter;
 use PhpSpec\Exception\Example\FailureException;
+use Prooph\PhpSpec\EventSourcing\AggregateExtractor;
 
 final class RecordedEventMatcher extends BasicMatcher
 {
-    /**
-     * @var Presenter
-     */
     private $presenter;
+    private $extractor;
 
-    /**
-     * @param Presenter $presenter
-     */
-    public function __construct(Presenter $presenter)
-    {
+    public function __construct(
+        Presenter $presenter,
+        AggregateExtractor $extractor
+    ) {
         $this->presenter = $presenter;
+        $this->extractor = $extractor;
     }
 
     /**
-     * @param string $name
-     * @param mixed  $subject
-     * @param array  $arguments
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function supports(string $name, $subject, array $arguments): bool
     {
@@ -38,17 +33,11 @@ final class RecordedEventMatcher extends BasicMatcher
     }
 
     /**
-     * @param mixed $subject
-     * @param array $arguments
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     protected function matches($subject, array $arguments): bool
     {
-        $refl = new \ReflectionObject($subject);
-        $prop = $refl->getProperty('recordedEvents');
-        $prop->setAccessible(true);
-        $events = $prop->getValue($subject);
+        $events = $this->extractor->extractRecordedEvents($subject);
 
         return count(array_filter($events, function($event) use ($arguments) {
             return $arguments[0] === get_class($event);
@@ -56,11 +45,7 @@ final class RecordedEventMatcher extends BasicMatcher
     }
 
     /**
-     * @param string $name
-     * @param mixed  $subject
-     * @param array  $arguments
-     *
-     * @return FailureException
+     * {@inheritdoc}
      */
     protected function getFailureException(string $name, $subject, array $arguments): FailureException
     {
@@ -72,11 +57,7 @@ final class RecordedEventMatcher extends BasicMatcher
     }
 
     /**
-     * @param string $name
-     * @param mixed  $subject
-     * @param array  $arguments
-     *
-     * @return FailureException
+     * {@inheritdoc}
      */
     protected function getNegativeFailureException(string $name, $subject, array $arguments): FailureException
     {
