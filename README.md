@@ -27,7 +27,7 @@ of your [Prooph aggregate roots](http://docs.getprooph.org/event-sourcing/intro.
 
 This matcher will check if your aggregate root has recorded at least one event of the provided class.
 
-[Example](features/aggregate_root_has_recorded_at_least_a_specific_event.feature);
+[Example](features/aggregate_root_has_recorded_at_least_a_specific_event.feature)
 
 ### `shouldHaveRecordedEventsThat(callable $callback)`
 
@@ -40,4 +40,4 @@ The callback has the following signature:
 bool callback ( array $events )
 ```
 
-[Example](features/aggregate_root_has_recorded_events.feature);
+[Example](features/aggregate_root_has_recorded_events.feature)
