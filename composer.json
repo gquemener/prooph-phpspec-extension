@@ -1,0 +1,28 @@
+{
+    "name": "prooph/phpspec-extension",
+    "description": "Ease aggregate root description using PhpSpec by providing matchers",
+    "type": "phpspec-extension",
+    "require": {
+        "php": "^7.0,<7.3",
+        "phpspec/phpspec": "^4.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.4",
+        "prooph/event-sourcing": "^5.3"
+    },
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Gildas Quéméner",
+            "email": "gildas.quemener@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Prooph\\PhpSpec\\": "src"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
