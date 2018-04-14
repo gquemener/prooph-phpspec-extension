@@ -1,5 +1,9 @@
 # Prooph PhpSpec extension
 
+## Disclaimer
+
+This extension IS NOT part of the Prooph project and is highly experimental.
+
 ## Installation
 
 You will need the [Composer](http://getcomposer.org/) package manager to install this extension.
